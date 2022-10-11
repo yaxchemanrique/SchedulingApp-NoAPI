@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="assets/index.css">
+    <link rel="shortcut icon" href="./assets/img/chevron-right.svg" type="image/x-icon">
+    <script src="assets/index.js" defer></script>
+    <title>Scheduling App</title>
+</head>
+<body>
+    <nav>
+        <ul class="nav-bar">
+            <li class="navbar-step">1</li>
+            <li class="navbar-step">2</li>
+            <li class="navbar-step">3</li>
+        </ul>
+    </nav>
+    <div class="weather-container">
+        <div class="location-content">
+            <div class="weather-icon" id="weather-icon">icon</div>
+            <div class="location-time">
+                <p class="country" id="country">Mexico City, CDMX</p>
+                <p class="currentTime" id="currentTime"></p>
+            </div>
+        </div>
+        <div class="hi-lo">
+            <p class="current-deg-text">
+                <span class="current-deg" id="curret-deg"></span> °C
+            </p>
+            <p class="hi-lo-text">H: <span class="hi-lo-temp" id="hi-temp"></span> °C</p>
+            <p class="hi-lo-text">L: <span class="hi-lo-temp" id="lo-temp"></span> °C</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="assets/img/calendar.png" alt="calendario">
+    </div>
+    <form id="multistep-form">
+        <div data-step class="form-card-container">
+            <p class="step-title">Step 1</p>
+            <p class="question">What type of appointent would you like to book?</p>
+
+            <div class="grid-container">
+                <div class="form-group-radio">
+                    <input type="radio" id="regular-check-up" name="appointment-type" value="regular-check-up">
+                    <label for="regular-check-up">Regular<br>Check&#8209Up</label>
+                </div>
+                <div class="form-group-radio">
+                    <input type="radio" id="lab-exams" name="appointment-type" value="lab-exams">
+                    <label for="lab-exams">Lab<br>Exams</label>
+                </div>
+                <div class="form-group-radio">
+                    <input type="radio" id="adult-consultation" value="adult-consultation" name="appointment-type">
+                    <label for="adult-consultation">Adult<br>Consultation</label>
+                </div>
+                <div class="form-group-radio">
+                    <input type="radio" id="children-consultation" value="children-consultation" name="appointment-type">
+                    <label for="children-consultation">Children<br>Consultation</label>
+                </div>
+            </div>
+        
+            <button type="button" class="next-btn" data-next-btn>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.6875 4L21 12L12.6875 20M2 12H21H2Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div data-step class="form-card-container">
+            <p class="step-title">Step 2</p>
+            <p class="question">Fill out your personal information:</p>
+
+            <div class="form-group-step2">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName">
+            </div>
+
+            <div class="form-group-step2">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-group-step2">
+                <label for="description">Brief Description</label>
+                <textarea name="description" id="description" cols="30" rows="3"></textarea>
+            </div>
+
+            <button type="button" class="next-btn" data-next-btn>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.6875 4L21 12L12.6875 20M2 12H21H2Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div data-step class="form-card-container">
+            <p class="step-title">Step 3</p>
+            <p class="question">When would you like to book?</p>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="move-btn" id="prev-btn">
+                        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.548 4.75977L7.38135 12.9264L15.548 21.0931" stroke="#E6A122" stroke-width="2.88235" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="calendar-header--text">
+                        <h3 class="month" id="month-name"></h3>
+                        <h3 class="year" id="year"></h3>
+                    </div>
+                    <div class="move-btn" id="next-btn">
+                        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.54883 4.75977L16.7155 12.9264L8.54883 21.0931" stroke="#E6A122" stroke-width="2.88235" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="calendar-weekdays">
+                    <div class="mon">MON</div>
+                    <div class="tue">TUE</div>
+                    <div class="wed">WED</div>
+                    <div class="thu">THU</div>
+                    <div class="fri">FRI</div>
+                    <div class="sat">SAT</div>
+                    <div class="sun">SUN</div>
+                </div>
+                <div class="calendar-body">
+                </div>
+            </div>
+        </div>
+        <dialog id="time-dialog" class="time-dialog">
+            <div class="time-dialog-content">
+                <p class="question">At what time?</p>
+                <p class="time-subtitle" id="morning">Morning</p>
+                <div class="time-tags-container" id="time-tags-morning">
+                </div>
+                <div>    
+                    <p class="time-subtitle" id="evening">Evening</p>
+                    <div class="time-tags-container" id="time-tags-evening">
+                    </div>
+                </div>
+                <button type="submit" id="submit-btn">Book
+                    <div class="check-mark">
+                        <svg class="checkmark-svg" id="checkmark-svg" width="24" height="24" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.2274 37.2083C17.8926 37.2073 17.5616 37.1374 17.255 37.0032C16.9484 36.8689 16.6727 36.6731 16.445 36.4279L4.57836 23.8182C4.13476 23.346 3.89713 22.7171 3.91774 22.0699C3.93835 21.4227 4.2155 20.8101 4.68823 20.367C5.16096 19.9239 5.79055 19.6866 6.43849 19.7071C7.08642 19.7277 7.69964 20.0046 8.14323 20.4768L18.203 31.184L38.7377 8.74518C38.9461 8.48597 39.2053 8.27205 39.4995 8.11656C39.7936 7.96107 40.1165 7.86729 40.4483 7.84099C40.7801 7.81469 41.1137 7.85641 41.4287 7.9636C41.7438 8.07079 42.0336 8.24119 42.2803 8.46432C42.527 8.68745 42.7254 8.9586 42.8634 9.26113C43.0014 9.56366 43.076 9.89117 43.0827 10.2236C43.0893 10.5559 43.0279 10.8862 42.9021 11.194C42.7764 11.5018 42.589 11.7806 42.3514 12.0134L20.0343 36.4035C19.8088 36.6531 19.534 36.8535 19.2273 36.992C18.9205 37.1305 18.5884 37.2042 18.2518 37.2083H18.2274Z" />
+                        </svg>
+                    </div>
+                    <div class="progress-bar"></div>
+                    <div class="progress-bar-filler"></div>
+                </button>
+            </div>
+        </dialog>
+    </form>
+    <dialog class="success-dialog" id="sucess-dialog">
+        <div class="sucess-dialog-content">
+            <div class="success-icon">
+                <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.2274 37.2083C17.8926 37.2073 17.5616 37.1374 17.255 37.0032C16.9484 36.8689 16.6727 36.6731 16.445 36.4279L4.57836 23.8182C4.13476 23.346 3.89713 22.7171 3.91774 22.0699C3.93835 21.4227 4.2155 20.8101 4.68823 20.367C5.16096 19.9239 5.79055 19.6866 6.43849 19.7071C7.08642 19.7277 7.69964 20.0046 8.14323 20.4768L18.203 31.184L38.7377 8.74518C38.9461 8.48597 39.2053 8.27205 39.4995 8.11656C39.7936 7.96107 40.1165 7.86729 40.4483 7.84099C40.7801 7.81469 41.1137 7.85641 41.4287 7.9636C41.7438 8.07079 42.0336 8.24119 42.2803 8.46432C42.527 8.68745 42.7254 8.9586 42.8634 9.26113C43.0014 9.56366 43.076 9.89117 43.0827 10.2236C43.0893 10.5559 43.0279 10.8862 42.9021 11.194C42.7764 11.5018 42.589 11.7806 42.3514 12.0134L20.0343 36.4035C19.8088 36.6531 19.534 36.8535 19.2273 36.992C18.9205 37.1305 18.5884 37.2042 18.2518 37.2083H18.2274Z" fill="white"/>
+                </svg>
+            </div>
+            <p class="success-subtitle">Great!</p>
+            <p class="success-subtitle">We'll see each other on:</p>
+            <p class="full-date" id="full-date"></p>
+            <p>at</p>
+            <p class="time" id="time"></p>
+            <p id="weather-suggestion-message">°</p>
+            <button class="done" id="done">Done</button>
+        </div>
+    </dialog>
+</body>
+</html>
